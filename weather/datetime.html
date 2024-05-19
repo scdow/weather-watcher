@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo{
+				width: 300px;
+				height: 50px;
+				background-color: #009CDA;
+				color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 100px auto;
+			}
+		
+		</style>
+		<script type="text/javascript">
+			function showdate(){
+				var xdate=new Date();
+				var xyear=xdate.getFullYear();
+				var xmonth=xdate.getMonth()+1;
+				var xday=xdate.getDate();
+				var xweek=xdate.getDay();
+				var week=["日","一","二","三","四","五","六"];
+				var xhours=xdate.getHours();
+				var xminutes=xdate.getMinutes();
+				var xseconds=xdate.getSeconds();
+				var str="";
+				str = xyear+"年"+change(xmonth)+"月"+change(xday)+"日    星期"+week[xweek]+"   "+change(xhours)+"时"+change(xminutes)+"分"+change(xseconds)+"秒";
+//				document.write(str);
+				document.getElementById("demo").innerHTML=str;
+				
+			}
+			function change(x){
+				//return x<=9?"0"+x:x;一样的结果的代码
+				var y;
+				if(x<=9)
+					y="0"+x;
+				else
+					y=x;
+				return y;
+			}
+			window.onload=function(){
+//				showdate();
+				window.setInterval(showdate,1000);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="demo"></div>
+	</body>
+</html>
